@@ -2,17 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class XMLObject : MonoBehaviour
+namespace XMLSystem
 {
-    // Start is called before the first frame update
-    void Start()
+    /// <summary>
+    /// Demo object to show functionality.
+    /// </summary>
+    public class XMLObject
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public XMLTransform xmlTransform;
     }
 }
+
