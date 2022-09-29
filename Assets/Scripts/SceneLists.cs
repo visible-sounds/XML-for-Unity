@@ -6,17 +6,17 @@ using System.Linq;
 
 namespace XMLSystem
 {
-    public class SceneLists
+    public class SceneLists : MonoBehaviour
     {
-        private HashSet<GameObject> allGameObjects = new HashSet<GameObject>();
-        private HashSet<GameObject> dynamicObjects = new HashSet<GameObject>();
+        private List<GameObject> allGameObjects = new List<GameObject>();
+        private List<GameObject> dynamicObjects = new List<GameObject>();
 
-        public HashSet<GameObject> DynamicObjects
+        public List<GameObject> DynamicObjects
         {
             get { return this.dynamicObjects; }
         }
 
-        public void PopulateHashSets()
+        public void PopulateLists()
         {
             GetAllObjectsInScene();
             FilterHashSets();
@@ -25,7 +25,7 @@ namespace XMLSystem
         private void GetAllObjectsInScene()
         {
             Scene scene = SceneManager.GetActiveScene();
-            allGameObjects = new HashSet<GameObject>(scene.GetRootGameObjects());
+            allGameObjects = new List<GameObject>(scene.GetRootGameObjects());
             foreach (GameObject obj in allGameObjects)
             {
                 if (obj == null)
@@ -64,7 +64,7 @@ namespace XMLSystem
             DestroyHashSet(allGameObjects);
         }
 
-        private void DestroyHashSet(HashSet<GameObject> hashSetToClear)
+        private void DestroyHashSet(List<GameObject> hashSetToClear)
         {
             foreach (GameObject obj in hashSetToClear)
             {

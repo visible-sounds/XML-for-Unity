@@ -9,20 +9,22 @@ namespace XMLSystem
     {
         [SerializeField] SceneObjectPrefabList prefabList;
         [SerializeField] SceneLists sceneLists;
-
+        [SerializeField] XMLObjectSaver xmlObjectSaver;
+        
 
         public void SaveToXML()
         {
             XMLScene xmlScene = PopulateXMLScene();
-
+            FileOperations.WriteXMLFile(xmlScene, Application.dataPath + "/Resources/XMLScene.xml");
         }
 
         public XMLScene PopulateXMLScene()
         {
             XMLScene xmlScene = new XMLScene();
-            sceneLists.PopulateHashSets();
+            sceneLists.PopulateLists();
 
-            return xmlScene; // TODO:
+            xmlObjectSaver.SaveListOfObjects(ref xmlScene.sceneObjects, true, prefabList);
+            return xmlScene; 
         }
     }
 }

@@ -6,16 +6,9 @@ namespace XMLSystem
 {
     public class XMLSaver : MonoBehaviour
     {
-        // Start is called before the first frame update
-        void Start()
+        protected string GetPrefabID(GameObject obj)
         {
-
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-
+            return obj.GetComponent<XMLPrefabID>().prefabID;
         }
     }
 }

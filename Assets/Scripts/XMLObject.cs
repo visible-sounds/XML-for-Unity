@@ -10,5 +10,6 @@ namespace XMLSystem
     public class XMLObject
     {
         public XMLTransform xmlTransform;
+        public string prefabID;
     }
 }
