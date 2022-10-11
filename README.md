@@ -19,6 +19,10 @@ In 5 simple steps:
   
 Please star :star: the repository if you find it useful so others can find it.
 
+<img src="/Screens/Screen1.PNG?raw=true" width="341" height="194.5">
+
+<img src="/Screens/Screen3.PNG?raw=true" width="341" height="194.5">
+
 ## Tips
 
 ## Packages this uses.
