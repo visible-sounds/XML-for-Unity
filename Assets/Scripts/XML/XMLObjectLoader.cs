@@ -6,11 +6,20 @@ namespace XMLSystem
 {
     public class XMLObjectLoader : XMLLoader
     {
+        private List<GameObject> previousParents = new List<GameObject>();
         public void LoadAllObjects(XMLScene xmlToLoadFrom, Transform parent)
         {
-            // Loop through each object in the XML.
-            GameObject subParent = Instantiate(new GameObject(), parent);
+            // Hierachy Organisation.
+            foreach (GameObject subP in previousParents)
+            {
+                Destroy(subP);
+            }
+            GameObject subParent = new GameObject();
+            subParent.transform.SetParent(parent);
+            subParent.name = "Sub";
+            previousParents.Add(subParent);
 
+            // Loop through each object in the XML.
             for (int i = 0; i < xmlToLoadFrom.sceneObjects.Count; i++)
             {
                 LoadSingleObject(xmlToLoadFrom.sceneObjects[i], subParent.transform);
